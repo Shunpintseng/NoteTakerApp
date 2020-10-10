@@ -8,7 +8,7 @@ function createNote (providedTitle, providedText, providedID){
     return newNote
 }
 
-var dbfile = "../note_db2.json"
+var dbfile = "./data/note_db.json"
 
 function addNote (title, text, id){
     let note = createNote(title, text,myDb.entries.length)
@@ -26,15 +26,18 @@ function currentNotes () {
 }
 
 function loadDb (){
-    let fileContent = fs.readFile(dbfile, function(err){});
-    console.log(fileContent);
-    if(fileContent!=undefined){
-        return JSON.parse(fileContent).entries;
-    }
-    return {entries:[]}
+    fs.readFile(dbfile, 'utf8',function(err, data){
+        if(err == null){
+            myDb = JSON.parse(data);
+        }else{
+            myDb = {entries:[]};
+        }
+    });
+    
 }
 
-var myDb = loadDb()
+var myDb = null;
+loadDb()
 
 //Routing
 module.exports = function(app) {
