@@ -20,7 +20,11 @@ Questions
 ## Description
     
     This application can be used to write, save and delete notes.
-    
+    git hub: https://github.com/Shunpintseng/NoteTakerApp
+    heroku: https://st-notetaker.herokuapp.com/
+    index page: snip\NoteTakerIndex.JPG
+    note page: snip\NoteTaker.JPG
+
 ## Installation
     
     This application use an express backend and save and retrive note data from a JSON file.
